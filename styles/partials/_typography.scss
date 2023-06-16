@@ -1,0 +1,15 @@
+@use "../partials/variables" as *;
+
+@font-face {
+  font-family: AirbnbCeral;
+  src: url("../../src/assets/fonts/AirbnbCereal-medium.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: AirbnbCeral;
+  src: url("../../src/assets/fonts/AirbnbCereal-bk.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}

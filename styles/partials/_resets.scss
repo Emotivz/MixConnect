@@ -1,0 +1,22 @@
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  max-width: 100%;
+}
+body {
+  font-size: 1.6rem;
+  padding: 2rem;
+  font-family: $font, "Courier New", monospace;
+}

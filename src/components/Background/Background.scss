@@ -1,0 +1,130 @@
+.bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100vh;
+  background: #ffffff;
+}
+
+.background {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__spot1 {
+    height: 17rem;
+    width: 18rem;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #b9dafb 0deg,
+      #9895ee 285deg,
+      #ecacad 359.96deg,
+      #c55492 360deg
+    );
+    opacity: 0.5;
+    filter: blur(5rem);
+    // left: -3rem;
+    // top: -2rem;
+    // position: relative;
+  }
+
+  &__spot2 {
+    height: 17rem;
+    width: 18rem;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #b9dafb 0deg,
+      #9895ee 0.04deg,
+      #c55492 0.07deg,
+      #ecacad 95.99deg,
+      #b9dafb 360deg
+    );
+    opacity: 0.7;
+    filter: blur(5rem);
+    // position: relative;
+    // right: -6rem;
+    // top: -2rem;
+  }
+}
+
+.background-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__spot1 {
+    height: 17rem;
+    width: 18rem;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #b9dafb 0deg,
+      #9895ee 285deg,
+      #ecacad 359.96deg,
+      #c55492 360deg
+    );
+    opacity: 0.5;
+    filter: blur(5rem);
+  }
+
+  &__spot2 {
+    height: 17rem;
+    width: 18rem;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #b9dafb 0deg,
+      #9895ee 0.04deg,
+      #c55492 0.07deg,
+      #ecacad 95.99deg,
+      #b9dafb 360deg
+    );
+    opacity: 0.7;
+    filter: blur(5rem);
+    // position: relative;
+    // right: -6rem;
+    // top: -2rem;
+  }
+}
+
+.background-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__spot1 {
+    height: 17rem;
+    width: 18rem;
+
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #b9cbfb 0deg,
+      #ecacad 95.99deg,
+      #9895ee 112.5deg,
+      #c55492 196.87deg,
+      #90a2f8 292.5deg,
+      #b9cbfb 360deg
+    );
+    opacity: 0.4;
+    filter: blur(5rem);
+    // position: relative;
+    // right: -6rem;
+    // top: -2rem;
+  }
+
+  &__spot2 {
+    height: 17rem;
+    width: 18rem;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #b9dafb 0deg,
+      #ecacad 95.99deg,
+      #9895ee 206.25deg,
+      #90a2f8 292.5deg,
+      #c55492 360deg
+    );
+    opacity: 0.5;
+    filter: blur(5rem);
+    // position: relative;
+    // right: -6rem;
+    // top: -2rem;
+  }
+}
