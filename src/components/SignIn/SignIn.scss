@@ -73,6 +73,11 @@
   &__rememberme-text {
     padding-left: 2rem;
   }
+
+  &__signup-container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 input:checked + .signin-form__slider {

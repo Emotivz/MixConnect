@@ -1,12 +1,10 @@
 import "./SignIn.scss";
 import { Formik, Form, useField } from "formik";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 
 const SignIn = () => {
   const MyTextInput = ({ label, ...props }) => {
-    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-    // which we can spread on <input>. We can use field meta to show an error
-    // message if the field is invalid and it has been touched (i.e. visited)
     const [field, meta] = useField(props);
     return (
       <>
@@ -22,10 +20,6 @@ const SignIn = () => {
   };
 
   const MyCheckbox = ({ children, ...props }) => {
-    // React treats radios and checkbox inputs differently from other input types: select and textarea.
-    // Formik does this too! When you specify `type` to useField(), it will
-    // return the correct bag of props for you -- a `checked` prop will be included
-    // in `field` alongside `name`, `value`, `onChange`, and `onBlur`
     const [field, meta] = useField({ ...props, type: "checkbox" });
     return (
       <div>
@@ -43,7 +37,7 @@ const SignIn = () => {
 
   return (
     <section className="signin">
-      <p>Sign In Page</p>
+      <h1>Sign In</h1>
       <Formik
         initialValues={{
           email: "",
@@ -80,7 +74,7 @@ const SignIn = () => {
             placeholder="Your password"
           />
           <div className="signin-form__rememberme-container">
-            <MyCheckbox name="rememberMe" />{" "}
+            <MyCheckbox name="rememberMe" />
             <p className="signin-form__rememberme-text">Remember Me</p>
           </div>
           <button className="signin-form__button" type="submit">
@@ -88,6 +82,11 @@ const SignIn = () => {
           </button>
         </Form>
       </Formik>
+      <div className="signin-form__signup-container">
+        <p className="signin-form__signup">
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </p>
+      </div>
     </section>
   );
 };
