@@ -1,0 +1,43 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/animations";
+
+.my-multi-select {
+  width: 100%;
+  height: 10rem;
+  border: 2px solid $secondary-blue;
+  display: flex;
+  position: relative;
+  margin: 1rem 0;
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: 1;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__input:checked ~ &__container {
+    background-color: $secondary-blue;
+  }
+
+  &__input:hover ~ &__container {
+    background-color: $primary-blue;
+  }
+}

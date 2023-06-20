@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    border-radius: 1.2rem;
+    border: 1px solid #e4dfdf;
+    height: 5rem;
+    margin: 1rem 0;
+  }
+
+  &__label {
+  }
+
+  &__error {
+    display: flex;
+    color: $red;
+  }
+
+  &__error-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

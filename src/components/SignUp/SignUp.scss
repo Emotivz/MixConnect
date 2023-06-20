@@ -21,9 +21,9 @@
   }
 
   &__button {
-    background: #5669ff;
+    background: $secondary-blue;
     box-shadow: 0px 10px 35px rgba(111, 126, 201, 0.25);
-    border-radius: 15px;
+    border-radius: 1.5rem;
     height: 5rem;
     margin: 1rem 0;
   }

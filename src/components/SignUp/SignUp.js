@@ -1,30 +1,24 @@
 import "./SignUp.scss";
 import { Formik, Form, useField } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import ErrorIcon from "../../assets/icons/error-24px.svg";
+import MyTextInput from "../MyTextInput/MyTextInput";
+import axios from "axios";
 
 const SignUp = () => {
-  const MyTextInput = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-      <>
-        <label className="signup-form__label" htmlFor={props.id || props.name}>
-          {label}
-        </label>
-        <input className="signup-form__input" {...field} {...props} />
-        {meta.touched && meta.error ? (
-          <div className="signup-form__error">
-            <img
-              src={ErrorIcon}
-              className="signup-form__error-icon"
-              alt="error icon"
-            />
-            {meta.error}
-          </div>
-        ) : null}
-      </>
-    );
+  const navigate = useNavigate();
+
+  const submitSignUp = async (values) => {
+    try {
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/users/register`,
+        values
+      );
+      console.log(`Sign up successful`);
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   const MyCheckbox = ({ children, ...props }) => {
@@ -55,14 +49,14 @@ const SignUp = () => {
       <h1>Sign Up</h1>
       <Formik
         initialValues={{
-          fullName: "",
+          full_name: "",
           email: "",
           password: "",
           confirmPassword: "",
-          dj: false,
+          is_dj: false,
         }}
         validationSchema={Yup.object({
-          fullName: Yup.string().required("Required"),
+          full_name: Yup.string().required("Required"),
           email: Yup.string()
             .email("Invalid email address")
             .required("Required"),
@@ -72,19 +66,23 @@ const SignUp = () => {
           confirmPassword: Yup.string()
             .required("Required")
             .oneOf([Yup.ref("password")], "Passwords do not match"),
-          dj: Yup.boolean(),
+          is_dj: Yup.boolean(),
         })}
         onSubmit={(values, { setSubmitting }) => {
+          submitSignUp(values);
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            if (values.is_dj) {
+              navigate("/signup/dj/", { state: values });
+            }
           }, 400);
         }}
       >
         <Form className="signup-form">
           <MyTextInput
             label="Full Name"
-            name="fullName"
+            name="full_name"
             type="text"
             placeholder="Full Name"
           />
@@ -107,7 +105,7 @@ const SignUp = () => {
             placeholder="Confirm password"
           />
           <div className="signin-form__dj-container">
-            <MyCheckbox name="dj" />
+            <MyCheckbox name="is_dj" />
             <p className="signin-form__dj-text">
               Sign Up as DJ (This will create a DJ Profile)
             </p>

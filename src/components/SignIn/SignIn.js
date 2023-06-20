@@ -2,23 +2,27 @@ import "./SignIn.scss";
 import { Formik, Form, useField } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import MyTextInput from "../MyTextInput/MyTextInput";
+import axios from "axios";
+import { useState } from "react";
 
-const SignIn = () => {
-  const MyTextInput = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-      <>
-        <label className="signin-form__label" htmlFor={props.id || props.name}>
-          {label}
-        </label>
-        <input className="signin-form__input" {...field} {...props} />
-        {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
-        ) : null}
-      </>
-    );
+const SignIn = ({ setIsLoggedIn }) => {
+  const [loginErrors, setLoginErrors] = useState(null);
+
+  const submitSignIn = async (values) => {
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/users/login`,
+        values
+      );
+      sessionStorage.setItem("token", response.data.token);
+      setIsLoggedIn(true);
+      setLoginErrors(null);
+    } catch (error) {
+      setLoginErrors(error.response.data.message);
+      console.log(error.response.data);
+    }
   };
-
   const MyCheckbox = ({ children, ...props }) => {
     const [field, meta] = useField({ ...props, type: "checkbox" });
     return (
@@ -54,6 +58,7 @@ const SignIn = () => {
           rememberMe: Yup.boolean(),
         })}
         onSubmit={(values, { setSubmitting }) => {
+          submitSignIn(values);
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
@@ -77,6 +82,9 @@ const SignIn = () => {
             <MyCheckbox name="rememberMe" />
             <p className="signin-form__rememberme-text">Remember Me</p>
           </div>
+          {loginErrors && (
+            <div className="text-input__error">{loginErrors}</div>
+          )}
           <button className="signin-form__button" type="submit">
             Sign In
           </button>

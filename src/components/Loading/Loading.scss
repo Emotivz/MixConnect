@@ -1,0 +1,44 @@
+@use "../../styles/partials/animations";
+@use "../../styles/partials/variables" as *;
+
+.loading {
+  &__loader {
+    position: relative;
+    padding-top: 25vh;
+    width: 4rem;
+    margin: auto;
+  }
+
+  &__circle {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    opacity: 0;
+    transform: rotate(225deg);
+    animation-iteration-count: infinite;
+    animation-name: orbit;
+    animation-duration: 2.5s;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 0.5rem;
+      background: $primary-blue;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 60ms;
+    }
+    &:nth-child(3) {
+      animation-delay: 120ms;
+    }
+    &:nth-child(4) {
+      animation-delay: 180ms;
+    }
+    &:nth-child(5) {
+      animation-delay: 240ms;
+    }
+  }
+}
