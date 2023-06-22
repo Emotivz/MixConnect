@@ -1,0 +1,11 @@
+.dj-bio {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

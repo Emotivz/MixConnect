@@ -1,4 +1,11 @@
-.dj-name__form {
-  display: flex;
-  flex-direction: column;
+.dj-name {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

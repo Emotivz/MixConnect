@@ -17,8 +17,9 @@ html {
 }
 body {
   font-size: 1.6rem;
-  padding: 2rem;
+  // padding: 2rem;
   font-family: $font, "Courier New", monospace;
+  overflow-x: hidden;
 }
 
 a {

@@ -2,6 +2,7 @@ import "./DjName.scss";
 import { Formik, Form } from "formik";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import * as Yup from "yup";
+import NextButton from "../NextButton/NextButton";
 
 const DjName = ({ data, next }) => {
   const handleSubmit = (values) => {
@@ -11,20 +12,23 @@ const DjName = ({ data, next }) => {
     <>
       <h1>DJ Name component</h1>
       <Formik
+        encType="multipart/form-data"
         initialValues={data}
         onSubmit={handleSubmit}
         validationSchema={Yup.object({
           djName: Yup.string().required("Required"),
         })}
       >
-        <Form className="dj-name__form">
+        <Form className="dj-name__form" encType="multipart/form-data">
           <MyTextInput
             label="DJ Name"
             name="djName"
             type="text"
             placeholder="DJ Name"
           />
-          <button type="submit">Next</button>
+          <div className="dj-name__button-container">
+            <NextButton />
+          </div>
         </Form>
       </Formik>
     </>

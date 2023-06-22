@@ -1,9 +1,11 @@
 import "./MyImageUpload.scss";
 import ErrorIcon from "../../assets/icons/error-24px.svg";
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 
 const MyImageUpload = ({ label, ...props }) => {
+  const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(props);
+
   return (
     <>
       <label className="text-input__label" htmlFor={props.id || props.name}>
@@ -15,6 +17,9 @@ const MyImageUpload = ({ label, ...props }) => {
         className="text-input__input"
         {...field}
         {...props}
+        onChange={(e) => {
+          setFieldValue(props.name, e.currentTarget.files[0]);
+        }}
       />
       {meta.touched && meta.error ? (
         <div className="text-input__error">

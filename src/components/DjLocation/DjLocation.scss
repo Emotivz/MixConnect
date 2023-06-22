@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+
+.dj-location {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

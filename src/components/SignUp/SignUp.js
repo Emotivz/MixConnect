@@ -5,19 +5,27 @@ import * as Yup from "yup";
 import ErrorIcon from "../../assets/icons/error-24px.svg";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import axios from "axios";
+import { useState } from "react";
 
-const SignUp = () => {
+const SignUp = ({ setUser_id }) => {
   const navigate = useNavigate();
 
+  const [signupErrors, setSignupErrors] = useState("");
+
   const submitSignUp = async (values) => {
+    setSignupErrors("");
     try {
-      await axios.post(
+      const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/users/register`,
         values
       );
-      console.log(`Sign up successful`);
+      setUser_id(response.data.user_id);
+      if (values.is_dj) {
+        return navigate("/signup/dj/", { state: values });
+      }
+      navigate("/");
     } catch (error) {
-      console.log(error.response.data);
+      setSignupErrors(error.response.data.message);
     }
   };
 
@@ -71,11 +79,7 @@ const SignUp = () => {
         onSubmit={(values, { setSubmitting }) => {
           submitSignUp(values);
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-            if (values.is_dj) {
-              navigate("/signup/dj/", { state: values });
-            }
+            setSubmitting(true);
           }, 400);
         }}
       >
@@ -92,6 +96,9 @@ const SignUp = () => {
             type="email"
             placeholder="abc@email.com"
           />
+          {signupErrors && (
+            <div className="text-input__error">{signupErrors}</div>
+          )}
           <MyTextInput
             label="Password"
             name="password"

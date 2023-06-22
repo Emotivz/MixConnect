@@ -1,6 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./DjSignupPage.scss";
-// import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import DjName from "../../components/DjName/DjName";
 import DjGenre from "../../components/DjGenre/DjGenre";
@@ -8,18 +7,22 @@ import DjImage from "../../components/DjImage/DjImage";
 import DjLocation from "../../components/DjLocation/DjLocation";
 import DjPrice from "../../components/DjPrice/DjPrice";
 import DjBio from "../../components/DjBio/DjBio";
+import axios from "axios";
 
-const DjSignupPage = () => {
+const DjSignupPage = ({ user_id }) => {
+  const formData = new FormData();
+
   const navigate = useNavigate();
 
   // initial DJ values
   const [data, setData] = useState({
     djName: "",
     genres: [],
-    profileImage: "",
+    profile_image: "",
     location: "",
     price: "",
     bio: "",
+    user_id,
   });
 
   // This holds information from the previous page and includes the state element which allows use to print the users name from the intial sign up form
@@ -29,12 +32,38 @@ const DjSignupPage = () => {
   //manages the changing of pages
   const [currentStep, setCurrentStep] = useState(0);
 
+  const submitFormData = async (newData) => {
+    const newDj = {
+      user_id: newData.user_id,
+      dj_name: newData.djName,
+      genres: newData.genres,
+      profile_image: newData.profile_image,
+      location: newData.location,
+      price: newData.price,
+      bio: newData.bio,
+    };
+
+    for (let value in newDj) {
+      formData.append(value, newDj[value]);
+    }
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/djs`,
+        formData
+      );
+      console.log(response.data.message);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   // Function to hanlde changing to next step
   const handleNextStep = (newData, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
     if (final) {
-      // replace this with a fucntion that actually submits the form
-      console.log("form is submitted", newData);
+      // replace this with a fucntion that actually submits the form AKA API request
+      submitFormData(newData);
       return;
     }
     setCurrentStep((prev) => prev + 1);

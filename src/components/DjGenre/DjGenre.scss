@@ -10,19 +10,4 @@
     display: flex;
     justify-content: space-between;
   }
-
-  &__back-button,
-  &__next-button {
-    background: $secondary-blue;
-    box-shadow: 0px 10px 35px rgba(111, 126, 201, 0.25);
-    border-radius: 1.5rem;
-    height: 5rem;
-    width: 10rem;
-    margin: 1rem 0;
-
-    &:hover {
-      background: $primary-blue;
-      transition: 0.3s ease-in;
-    }
-  }
 }

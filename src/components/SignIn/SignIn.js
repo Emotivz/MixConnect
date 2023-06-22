@@ -60,8 +60,8 @@ const SignIn = ({ setIsLoggedIn }) => {
         onSubmit={(values, { setSubmitting }) => {
           submitSignIn(values);
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
+            // alert(JSON.stringify(values, null, 2));
+            setSubmitting(true);
           }, 400);
         }}
       >

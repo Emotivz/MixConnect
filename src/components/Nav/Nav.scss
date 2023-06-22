@@ -1,0 +1,69 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/animations";
+
+.nav {
+  padding: 4rem 0;
+  background-color: $primary-blue;
+  border-radius: 0 0 3.3rem 3.3rem;
+  height: 15rem;
+
+  &__menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  &__menu-icon,
+  &__notification-icon {
+    height: 5rem;
+    width: 5rem;
+    // background-color: black;
+  }
+
+  &__welcome-text {
+    color: white;
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing;
+    animation-duration: 1.5s;
+    animation-timing-function: steps(30, end);
+    animation-fill-mode: forwards;
+  }
+
+  &__menu {
+    width: 100%;
+    height: 100%;
+    // position: absolute;
+  }
+}
+
+.nav__menu--show {
+  background-color: $primary-blue;
+  color: #eee;
+  display: block;
+  left: 0;
+  top: 0;
+  padding: 4rem 1rem 0 2rem;
+  position: absolute;
+  text-decoration: none;
+  transition: 0.5s linear;
+  user-select: none;
+  -webkit-user-drag: none;
+
+  &:focus {
+    opacity: 0;
+  }
+
+  &:focus ~ .main {
+    margin-left: 17rem;
+    transition-delay: 0.25s;
+  }
+
+  &:focus ~ .nav2 {
+    left: 0;
+    transition-delay: 0.25s;
+  }
+}

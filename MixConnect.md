@@ -2,7 +2,7 @@
 
 ## Overview
 
-A platform to connect DJs with event organisers and clients. Provides a marketplace where DJs can create profiles and showcase their skills, genres, and experience, while event organisers can search and book DJs for their events.
+Mix Connect is a marketplace platform for DJs to showcase their skills, genres, and experience on their profiles and event organisers can browse and hire the ideal DJ for their events.
 
 ### Problem
 

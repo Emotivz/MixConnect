@@ -1,10 +1,10 @@
 import "./SignUpPage.scss";
 import SignUp from "../../components/SignUp/SignUp";
 
-const SignUpPage = () => {
+const SignUpPage = ({ setUser_id }) => {
   return (
     <>
-      <SignUp />
+      <SignUp setUser_id={setUser_id} />
     </>
   );
 };
