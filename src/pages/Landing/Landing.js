@@ -65,7 +65,13 @@ const Landing = () => {
 
   // when user is logged in do axios to pull full name and set in state
   if (isLoggedIn) {
-    return <Home fullName={fullName} djDetails={djDetails} />;
+    return (
+      <Home
+        fullName={fullName}
+        djDetails={djDetails}
+        setIsLoggedIn={setIsLoggedIn}
+      />
+    );
   } else {
     return <SignIn setIsLoggedIn={setIsLoggedIn} />;
   }

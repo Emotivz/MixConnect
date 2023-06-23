@@ -1,12 +1,16 @@
 import "./Menu.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AboutIcon from "../../assets/icons/abouticon.svg";
 import EventIcon from "../../assets/icons/eventicon.svg";
 import MusicIcon from "../../assets/icons/musicicon.svg";
 import ProfileIcon from "../../assets/icons/profileicon.svg";
 import SignOutIcon from "../../assets/icons/signouticon.svg";
 
-const Menu = ({ djDetails, fullName }) => {
+const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
+  const handleSignOut = () => {
+    sessionStorage.removeItem("token");
+    setIsLoggedIn(false);
+  };
   return (
     <nav className="nav2">
       {djDetails && (
@@ -42,7 +46,7 @@ const Menu = ({ djDetails, fullName }) => {
         <img src={AboutIcon} alt="question mark icon" className="menu__icon" />
         About Us
       </Link>
-      <Link className="menu__link">
+      <Link onClick={handleSignOut} className="menu__link">
         <img src={SignOutIcon} alt="exit icon" className="menu__icon" />
         Sign Out
       </Link>
