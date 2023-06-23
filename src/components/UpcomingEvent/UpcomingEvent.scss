@@ -46,4 +46,17 @@
   &__title {
     padding: 0 1rem;
   }
+
+  &__location-container {
+    padding: 2rem 1rem;
+    display: flex;
+  }
+
+  &__location-icon {
+    padding-right: 0.5rem;
+  }
+
+  &__location {
+    color: #a5a7b5;
+  }
 }

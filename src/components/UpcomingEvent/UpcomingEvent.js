@@ -1,5 +1,6 @@
 import "./UpcomingEvent.scss";
 import CoverImage from "../../assets/images/image 84.svg";
+import MapPin from "../../assets/icons/map-pin.svg";
 
 const UpcomingEvent = () => {
   return (
@@ -13,7 +14,7 @@ const UpcomingEvent = () => {
       </div>
       <h2 className="upcoming-event__title">Wedding Party</h2>
       <div className="upcoming-event__location-container">
-        <img src="" alt="" className="upcoming-event__location-icon" />
+        <img src={MapPin} alt="" className="upcoming-event__location-icon" />
         <p className="upcoming-event__location">36 Guild Street London, UK</p>
       </div>
     </article>
