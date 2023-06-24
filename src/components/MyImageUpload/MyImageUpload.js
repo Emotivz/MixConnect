@@ -8,13 +8,13 @@ const MyImageUpload = ({ label, ...props }) => {
 
   return (
     <>
-      <label className="text-input__label" htmlFor={props.id || props.name}>
+      <label className="image-input__label" htmlFor={props.id || props.name}>
         {label}
       </label>
       <input
         type="file"
         accept="image/*"
-        className="text-input__input"
+        className="image-input__input"
         {...field}
         {...props}
         onChange={(e) => {
