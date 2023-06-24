@@ -24,6 +24,7 @@ const Landing = ({
       `${process.env.REACT_APP_API_URL}/djs/${userId}`
     );
     setDjDetails(response.data);
+    sessionStorage.setItem("djDetails", JSON.stringify(response.data));
   };
 
   const verifyToken = async () => {
@@ -38,8 +39,14 @@ const Landing = ({
         }
       );
       setIsLoggedIn(true);
+      sessionStorage.setItem("isLoggedIn", true);
+
       setCheckingToken(false);
+      sessionStorage.setItem("checkingToken", false);
+
       setFullName(response.data.full_name);
+      sessionStorage.setItem("fullName", response.data.full_name);
+
       setIsDj(response.data.is_dj);
       setUserId(response.data.id);
       if (isDj) {

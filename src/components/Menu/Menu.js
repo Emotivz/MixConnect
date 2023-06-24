@@ -7,16 +7,19 @@ import ProfileIcon from "../../assets/icons/profileicon.svg";
 import SignOutIcon from "../../assets/icons/signouticon.svg";
 
 const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
+  const sessionDjDetails = JSON.parse(sessionStorage.getItem("djDetails"));
+  const sessionFullName = sessionStorage.getItem("fullName");
+
   const handleSignOut = () => {
-    sessionStorage.removeItem("token");
     setIsLoggedIn(false);
+    sessionStorage.clear();
   };
   return (
     <nav className="nav2">
-      {djDetails && (
+      {sessionDjDetails && (
         <Link>
           <img
-            src={djDetails.profile_image}
+            src={sessionDjDetails.profile_image}
             alt="profile icon"
             className="menu__profile-image"
           />
@@ -24,10 +27,10 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
       )}
 
       <Link>
-        {djDetails ? (
-          <h3 className="menu__profile-name">{djDetails.dj_name}</h3>
+        {sessionDjDetails ? (
+          <h3 className="menu__profile-name">{sessionDjDetails.dj_name}</h3>
         ) : (
-          <h3 className="menu__profile-name">{fullName}</h3>
+          <h3 className="menu__profile-name">{sessionFullName}</h3>
         )}
       </Link>
       <Link className="menu__link">

@@ -5,7 +5,7 @@ import UpcomingEvent from "../UpcomingEvent/UpcomingEvent";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Home = ({ djDetails, fullName, setIsLoggedIn }) => {
+const Home = () => {
   const [featuredEvents, setFeaturedEvents] = useState(null);
 
   const fetchFeturedEvents = async () => {
@@ -31,28 +31,21 @@ const Home = ({ djDetails, fullName, setIsLoggedIn }) => {
     fetchFeturedEvents();
   }, []);
   return (
-    <>
-      {/* <Menu
-        fullName={fullName}
-        djDetails={djDetails}
-        setIsLoggedIn={setIsLoggedIn}
-      /> */}
-      <main className="main">
-        <div className="upcoming-events__container">
-          <h3>Upcoming Events</h3>
-          <Link className="upcoming-events__seeall">
-            See All <img src={SeeAllIcon} alt="see all" />
-          </Link>
-        </div>
-        {featuredEvents ? (
-          featuredEvents.map((event) => {
-            return <UpcomingEvent key={event.id} event={event} />;
-          })
-        ) : (
-          <p>There are no upcoming events</p>
-        )}
-      </main>
-    </>
+    <main className="main">
+      <div className="upcoming-events__container">
+        <h3>Upcoming Events</h3>
+        <Link className="upcoming-events__seeall">
+          See All <img src={SeeAllIcon} alt="see all" />
+        </Link>
+      </div>
+      {featuredEvents ? (
+        featuredEvents.map((event) => {
+          return <UpcomingEvent key={event.id} event={event} />;
+        })
+      ) : (
+        <p>There are no upcoming events</p>
+      )}
+    </main>
   );
 };
 

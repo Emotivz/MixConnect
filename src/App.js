@@ -15,15 +15,17 @@ function App() {
   const [fullName, setFullName] = useState("");
   const [djDetails, setDjDetails] = useState(null);
 
+  const sessionIsLoggedIn = sessionStorage.getItem("isLoggedIn");
+
   return (
     <BrowserRouter>
-      {isLoggedIn && <Nav fullName={fullName} />}
-      {isLoggedIn && (
+      {sessionIsLoggedIn && <Nav fullName={fullName} />}
+      {sessionIsLoggedIn && (
         <Link className="nav__menu--show">
           <img src={MenuIcon} alt="menu-icon" className="nav__menu-icon" />
         </Link>
       )}
-      {isLoggedIn && (
+      {sessionIsLoggedIn && (
         <Menu
           fullName={fullName}
           djDetails={djDetails}
