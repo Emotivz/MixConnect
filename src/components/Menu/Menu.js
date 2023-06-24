@@ -1,5 +1,5 @@
 import "./Menu.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AboutIcon from "../../assets/icons/abouticon.svg";
 import EventIcon from "../../assets/icons/eventicon.svg";
 import MusicIcon from "../../assets/icons/musicicon.svg";
@@ -34,7 +34,14 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
         <img src={ProfileIcon} alt="" className="menu__icon" />
         My Profile
       </Link>
-      <Link className="menu__link">
+      <Link
+        to="/events"
+        className="menu__link"
+        state={{
+          djDetails,
+          fullName,
+        }}
+      >
         <img src={EventIcon} alt="calendar icon" className="menu__icon" />
         Events
       </Link>

@@ -6,13 +6,17 @@ import axios from "axios";
 // import Background from "../components/Background/Background";
 import Loading from "../../components/Loading/Loading";
 
-const Landing = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [fullName, setFullName] = useState("");
+const Landing = ({
+  isLoggedIn,
+  setIsLoggedIn,
+  fullName,
+  setFullName,
+  djDetails,
+  setDjDetails,
+}) => {
   const [checkingToken, setCheckingToken] = useState(true);
   const [isDj, setIsDj] = useState(0);
   const [userId, setUserId] = useState("");
-  const [djDetails, setDjDetails] = useState(null);
 
   // fetch dj details if the user is a dj
   const fetchDjDetails = async () => {
@@ -63,7 +67,6 @@ const Landing = () => {
     return <Loading />;
   }
 
-  // when user is logged in do axios to pull full name and set in state
   if (isLoggedIn) {
     return (
       <Home

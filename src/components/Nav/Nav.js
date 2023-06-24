@@ -1,6 +1,5 @@
 import "./Nav.scss";
 import NotificationIcon from "../../assets/icons/notificationicon.svg";
-// import { useState } from "react";
 
 const Nav = ({ fullName }) => {
   return (
