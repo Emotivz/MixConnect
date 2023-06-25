@@ -1,7 +1,12 @@
 .events {
   &__new-event-button-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 4rem 2rem;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 500;
   }
 }

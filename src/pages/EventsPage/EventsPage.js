@@ -27,6 +27,7 @@ const EventsPage = () => {
   return (
     <main className="main">
       <div className="events__new-event-button-container">
+        <h1 className="events__title">Events</h1>
         <button className="events__new-event-button">Create New Event</button>
       </div>
       {events &&

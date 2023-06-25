@@ -34,7 +34,7 @@ const Home = () => {
     <main className="main">
       <div className="upcoming-events__container">
         <h3>Upcoming Events</h3>
-        <Link className="upcoming-events__seeall">
+        <Link to="/events" className="upcoming-events__seeall">
           See All <img src={SeeAllIcon} alt="see all" />
         </Link>
       </div>
