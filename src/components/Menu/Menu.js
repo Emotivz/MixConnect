@@ -5,6 +5,7 @@ import EventIcon from "../../assets/icons/eventicon.svg";
 import MusicIcon from "../../assets/icons/musicicon.svg";
 import ProfileIcon from "../../assets/icons/profileicon.svg";
 import SignOutIcon from "../../assets/icons/signouticon.svg";
+import HomeIcon from "../../assets/icons/homeicon.svg";
 
 const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
   const sessionDjDetails = JSON.parse(sessionStorage.getItem("djDetails"));
@@ -32,6 +33,10 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
         ) : (
           <h3 className="menu__profile-name">{sessionFullName}</h3>
         )}
+      </Link>
+      <Link to="/" className="menu__link">
+        <img src={HomeIcon} alt="" className="menu__icon" />
+        Home
       </Link>
       <Link className="menu__link">
         <img src={ProfileIcon} alt="" className="menu__icon" />

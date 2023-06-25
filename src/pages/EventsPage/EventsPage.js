@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./EventsPage.scss";
 import axios from "axios";
 import Event from "../../components/Event/Event";
+import { Link } from "react-router-dom";
 
 const EventsPage = () => {
   const [events, setEvents] = useState(null);
@@ -25,9 +26,16 @@ const EventsPage = () => {
   }, []);
   return (
     <main className="main">
+      <div className="events__new-event-button-container">
+        <button className="events__new-event-button">Create New Event</button>
+      </div>
       {events &&
         events.map((event) => {
-          return <Event event={event} key={event.id} />;
+          return (
+            <Link to={`/events/${event.id}`} key={event.id}>
+              <Event event={event} />
+            </Link>
+          );
         })}
     </main>
   );
