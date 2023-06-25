@@ -1,7 +1,7 @@
 import "./Nav.scss";
 import NotificationIcon from "../../assets/icons/notificationicon.svg";
 
-const Nav = ({ fullName }) => {
+const Nav = () => {
   const sessionFullName = sessionStorage.getItem("fullName");
   return (
     <nav className="nav">

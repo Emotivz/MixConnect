@@ -1,0 +1,37 @@
+@use "../../styles/partials/variables" as *;
+
+.event {
+  margin: 2rem 2rem;
+  height: 12rem;
+  box-shadow: 0 0.8rem 3rem rgba(80, 85, 136, 0.06);
+  border-radius: 1.8rem;
+  background-color: rgba(86, 105, 255, 0.1);
+  display: flex;
+
+  &__cover-photo {
+    width: 12rem;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1.8rem;
+    object-fit: cover;
+  }
+
+  &__details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__date {
+    color: $primary-blue;
+  }
+
+  &__date-relative {
+    color: $red;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    color: #120d26;
+  }
+}
