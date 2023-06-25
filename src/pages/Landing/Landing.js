@@ -16,12 +16,14 @@ const Landing = ({
 }) => {
   const [checkingToken, setCheckingToken] = useState(true);
   const [isDj, setIsDj] = useState(0);
-  const [userId, setUserId] = useState("");
+  const [_userId, setUserId] = useState("");
+
+  const sessionUserId = JSON.parse(sessionStorage.getItem("userId"));
 
   // fetch dj details if the user is a dj
   const fetchDjDetails = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/djs/${userId}`
+      `${process.env.REACT_APP_API_URL}/djs/${sessionUserId}`
     );
     setDjDetails(response.data);
     sessionStorage.setItem("djDetails", JSON.stringify(response.data));
@@ -48,8 +50,14 @@ const Landing = ({
       sessionStorage.setItem("fullName", response.data.full_name);
 
       setIsDj(response.data.is_dj);
+      sessionStorage.setItem("isDj", response.data.is_dj);
+
       setUserId(response.data.id);
-      if (isDj) {
+      sessionStorage.setItem("userId", response.data.id);
+
+      const sessionIsDj = JSON.parse(sessionStorage.getItem("isDj"));
+
+      if (sessionIsDj) {
         fetchDjDetails();
       }
     } catch (error) {

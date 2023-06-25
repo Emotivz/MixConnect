@@ -20,6 +20,7 @@ const SignUp = ({ setUser_id }) => {
         values
       );
       setUser_id(response.data.user_id);
+      sessionStorage.setItem("user_id", response.data.user_id);
       if (values.is_dj) {
         return navigate("/signup/dj/", { state: values });
       }

@@ -7,10 +7,11 @@ import { useState } from "react";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import Nav from "./components/Nav/Nav";
 import Menu from "./components/Menu/Menu";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import MenuIcon from "./assets/icons/menuicon.svg";
 
 function App() {
-  const [user_id, setUser_id] = useState();
+  const [user_id, setUser_id] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fullName, setFullName] = useState("");
   const [djDetails, setDjDetails] = useState(null);
@@ -55,6 +56,7 @@ function App() {
           element={<DjSignupPage user_id={user_id} />}
         />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

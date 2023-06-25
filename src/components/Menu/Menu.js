@@ -18,7 +18,7 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
   return (
     <nav className="nav2">
       {sessionDjDetails && (
-        <Link>
+        <Link to="/profile">
           <img
             src={sessionDjDetails.profile_image}
             alt="profile icon"
@@ -27,7 +27,7 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
         </Link>
       )}
 
-      <Link>
+      <Link to="/profile">
         {sessionDjDetails ? (
           <h3 className="menu__profile-name">{sessionDjDetails.dj_name}</h3>
         ) : (
@@ -38,7 +38,7 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
         <img src={HomeIcon} alt="" className="menu__icon" />
         Home
       </Link>
-      <Link className="menu__link">
+      <Link to="/profile" className="menu__link">
         <img src={ProfileIcon} alt="" className="menu__icon" />
         My Profile
       </Link>
