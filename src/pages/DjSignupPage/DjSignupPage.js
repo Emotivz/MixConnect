@@ -62,7 +62,6 @@ const DjSignupPage = ({ user_id }) => {
   const handleNextStep = (newData, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
     if (final) {
-      // replace this with a fucntion that actually submits the form AKA API request
       submitFormData(newData);
       return;
     }

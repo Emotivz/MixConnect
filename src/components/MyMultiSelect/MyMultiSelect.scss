@@ -11,6 +11,7 @@
   animation-duration: 3s;
   animation-name: slidein;
   animation-iteration-count: 1;
+  border-radius: 1.6rem;
 
   &__container {
     width: 100%;
@@ -35,9 +36,22 @@
 
   &__input:checked ~ &__container {
     background-color: $secondary-blue;
+    border-radius: 1.6rem;
   }
 
   &__input:hover ~ &__container {
     background-color: $primary-blue;
+    border-radius: 1.6rem;
   }
+}
+
+.edit-my-multi-select {
+  width: 10rem;
+  height: 5rem;
+  border: 0.2rem solid $secondary-blue;
+  border-radius: 1.6rem;
+  display: flex;
+  position: relative;
+  margin: 1rem 1rem 0 1rem;
+  animation-iteration-count: 1;
 }

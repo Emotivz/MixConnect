@@ -1,7 +1,58 @@
+@use "../../styles/partials/variables" as *;
+
 .edit-profile {
   margin: 4rem 2rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &__header {
     font-weight: 500;
     font-size: 4rem;
+  }
+
+  &__dj-genre-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &__dj_genre-header {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &__save-button {
+    margin: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-blue;
+    border-radius: 1rem;
+    border-color: $primary-blue;
+    height: 5rem;
+    width: 40%;
+    font-size: 2rem;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  &__save-icon {
+    position: absolute;
+    right: 0;
+    padding-right: 2rem;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
   }
 }

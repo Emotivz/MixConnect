@@ -6,12 +6,30 @@ import EditProfile from "../../components/EditProfile/EditProfile";
 import Loading from "../../components/Loading/Loading";
 
 const EditProfilePage = () => {
-  // fetch token
-  // use token to auth user and get user_id
-  // use user id to filter which profile needs to be edited
-  // Render the edit profile component when data has been recieced from API call
   const [myProfile, setMyProfile] = useState(null);
   const navigate = useNavigate();
+  const [genres, setGenres] = useState(null);
+  const [genresParsed, setGenresParsed] = useState(false);
+
+  // convert genres from database back into array
+  const parseSelectedGenres = () => {
+    if (!myProfile.is_dj) {
+      return setGenresParsed(true);
+    }
+    myProfile.genres = JSON.parse(myProfile.genres);
+    setGenresParsed(true);
+  };
+
+  const getGenres = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/genres`
+      );
+      setGenres(response.data);
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    }
+  };
 
   const fetchProfile = async (token) => {
     try {
@@ -23,7 +41,6 @@ const EditProfilePage = () => {
           },
         }
       );
-
       setMyProfile(profile.data);
     } catch (error) {
       console.log(error.response.data);
@@ -34,13 +51,28 @@ const EditProfilePage = () => {
     const token = sessionStorage.getItem("token");
     if (token) {
       fetchProfile(token);
+      getGenres();
     } else {
       navigate("/");
     }
     // eslint-disable-next-line
   }, []);
 
-  return <>{myProfile ? <EditProfile myProfile={myProfile} /> : <Loading />}</>;
+  // parse selected genres into array format
+  useEffect(() => {
+    myProfile && parseSelectedGenres();
+    // eslint-disable-next-line
+  }, [myProfile]);
+
+  return (
+    <>
+      {myProfile && genres && genresParsed ? (
+        <EditProfile myProfile={myProfile} genres={genres} />
+      ) : (
+        <Loading />
+      )}
+    </>
+  );
 };
 
 export default EditProfilePage;

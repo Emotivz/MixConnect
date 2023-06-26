@@ -7,6 +7,7 @@ import Loading from "../../components/Loading/Loading";
 
 const ProfilePage = () => {
   const [myProfile, setMyProfile] = useState(null);
+
   const navigate = useNavigate();
 
   const fetchProfile = async (token) => {
