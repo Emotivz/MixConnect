@@ -7,6 +7,7 @@
   border-radius: 1.8rem;
   background-color: rgba(86, 105, 255, 0.1);
   display: flex;
+  position: relative;
 
   &__cover-photo {
     width: 12rem;
@@ -33,5 +34,15 @@
 
   &__title {
     color: #120d26;
+  }
+
+  &__delete-icon {
+    color: white;
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    right: 0;
+    margin: 2rem;
+    z-index: 1;
   }
 }
