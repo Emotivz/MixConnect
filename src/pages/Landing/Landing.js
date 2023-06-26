@@ -9,16 +9,14 @@ import Loading from "../../components/Loading/Loading";
 const Landing = ({
   isLoggedIn,
   setIsLoggedIn,
-  fullName,
   setFullName,
-  djDetails,
   setDjDetails,
   isDj,
   setIsDj,
 }) => {
   const [checkingToken, setCheckingToken] = useState(true);
   // eslint-disable-next-line
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState("");
 
   // fetch dj details if the user is a dj
   const fetchDjDetails = async () => {
@@ -54,7 +52,7 @@ const Landing = ({
       setUserId(response.data.id);
       sessionStorage.setItem("userId", response.data.id);
 
-      if (isDj) {
+      if (isDj && userId) {
         fetchDjDetails();
       }
     } catch (error) {
