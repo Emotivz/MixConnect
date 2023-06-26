@@ -4,7 +4,6 @@ import EditIcon from "../../assets/icons/edit.svg";
 import PlaceholderImage from "../../assets/images/placeholder-profile.jpg";
 
 const Profile = ({ myProfile }) => {
-  console.log(myProfile);
   return (
     <section className="profile main">
       <h1 className="profile__header">My Profile</h1>
@@ -54,6 +53,24 @@ const Profile = ({ myProfile }) => {
             <p className="profile__price">£{myProfile.price}</p>
           </>
         )}
+        <h3 className="profile__genres-header"> Genres</h3>
+        <div className="profile__genres-container">
+          {JSON.parse(myProfile.genres)[0] ? (
+            JSON.parse(myProfile.genres).map((genre) => {
+              return (
+                // TODO pull genre key from database or use UUID
+                <p key={genre} className="profile__genre">
+                  {genre}
+                </p>
+              );
+            })
+          ) : (
+            <p>
+              You currently don't have any genres listed. Why don't you add some
+              😬
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );
