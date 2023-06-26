@@ -1,11 +1,15 @@
-import "./ProfilePage.scss";
-import Profile from "../../components/Profile/Profile";
+import "./EditProfilePage.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import EditProfile from "../../components/EditProfile/EditProfile";
 import Loading from "../../components/Loading/Loading";
 
-const ProfilePage = () => {
+const EditProfilePage = () => {
+  // fetch token
+  // use token to auth user and get user_id
+  // use user id to filter which profile needs to be edited
+  // Render the edit profile component when data has been recieced from API call
   const [myProfile, setMyProfile] = useState(null);
   const navigate = useNavigate();
 
@@ -36,7 +40,7 @@ const ProfilePage = () => {
     // eslint-disable-next-line
   }, []);
 
-  return <>{myProfile ? <Profile myProfile={myProfile} /> : <Loading />}</>;
+  return <>{myProfile ? <EditProfile myProfile={myProfile} /> : <Loading />}</>;
 };
 
-export default ProfilePage;
+export default EditProfilePage;

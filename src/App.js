@@ -9,6 +9,7 @@ import Nav from "./components/Nav/Nav";
 import Menu from "./components/Menu/Menu";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import MenuIcon from "./assets/icons/menuicon.svg";
+import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 
 function App() {
   const [user_id, setUser_id] = useState(0);
@@ -62,6 +63,7 @@ function App() {
         />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/edit" element={<EditProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

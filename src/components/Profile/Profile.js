@@ -2,8 +2,14 @@ import "./Profile.scss";
 import DjIcon from "../../assets/icons/djicon.svg";
 import EditIcon from "../../assets/icons/edit.svg";
 import PlaceholderImage from "../../assets/images/placeholder-profile.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ myProfile }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/profile/edit");
+  };
   return (
     <section className="profile main">
       <h1 className="profile__header">My Profile</h1>
@@ -35,7 +41,7 @@ const Profile = ({ myProfile }) => {
             <h4 className="profile__followers-header">Followers</h4>
           </div>
         </div>
-        <button className="profile__edit-button">
+        <button onClick={handleClick} className="profile__edit-button">
           <img src={EditIcon} alt="" className="profile__edit-icon" />
           Edit profile
         </button>
@@ -55,7 +61,13 @@ const Profile = ({ myProfile }) => {
         )}
         <h3 className="profile__genres-header"> Genres</h3>
         <div className="profile__genres-container">
-          {JSON.parse(myProfile.genres)[0] ? (
+          {myProfile.genres === undefined ||
+          !JSON.parse(myProfile.genres)[0] ? (
+            <p>
+              You currently don't have any genres listed. Why don't you add some
+              😬
+            </p>
+          ) : (
             JSON.parse(myProfile.genres).map((genre) => {
               return (
                 // TODO pull genre key from database or use UUID
@@ -64,11 +76,6 @@ const Profile = ({ myProfile }) => {
                 </p>
               );
             })
-          ) : (
-            <p>
-              You currently don't have any genres listed. Why don't you add some
-              😬
-            </p>
           )}
         </div>
       </div>
