@@ -13,24 +13,23 @@ const Landing = ({
   setFullName,
   djDetails,
   setDjDetails,
+  isDj,
+  setIsDj,
 }) => {
   const [checkingToken, setCheckingToken] = useState(true);
-  const [isDj, setIsDj] = useState(0);
-  const [_userId, setUserId] = useState("");
-
-  const sessionUserId = JSON.parse(sessionStorage.getItem("userId"));
+  // eslint-disable-next-line
+  const [userId, setUserId] = useState(null);
 
   // fetch dj details if the user is a dj
   const fetchDjDetails = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/djs/${sessionUserId}`
+      `${process.env.REACT_APP_API_URL}/djs/${userId}`
     );
     setDjDetails(response.data);
     sessionStorage.setItem("djDetails", JSON.stringify(response.data));
   };
 
-  const verifyToken = async () => {
-    const token = sessionStorage.getItem("token");
+  const verifyToken = async (token) => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/users/login`,
@@ -55,9 +54,7 @@ const Landing = ({
       setUserId(response.data.id);
       sessionStorage.setItem("userId", response.data.id);
 
-      const sessionIsDj = JSON.parse(sessionStorage.getItem("isDj"));
-
-      if (sessionIsDj) {
+      if (isDj) {
         fetchDjDetails();
       }
     } catch (error) {
@@ -71,7 +68,7 @@ const Landing = ({
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     if (token) {
-      verifyToken();
+      verifyToken(token);
     } else {
       setCheckingToken(false);
     }
@@ -83,13 +80,7 @@ const Landing = ({
   }
 
   if (isLoggedIn) {
-    return (
-      <Home
-        fullName={fullName}
-        djDetails={djDetails}
-        setIsLoggedIn={setIsLoggedIn}
-      />
-    );
+    return <Home />;
   } else {
     return <SignIn setIsLoggedIn={setIsLoggedIn} />;
   }

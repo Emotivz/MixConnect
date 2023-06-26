@@ -15,6 +15,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fullName, setFullName] = useState("");
   const [djDetails, setDjDetails] = useState(null);
+  const [isDj, setIsDj] = useState(0);
 
   const sessionIsLoggedIn = sessionStorage.getItem("isLoggedIn");
 
@@ -31,6 +32,8 @@ function App() {
           fullName={fullName}
           djDetails={djDetails}
           setIsLoggedIn={setIsLoggedIn}
+          setDjDetails={setDjDetails}
+          setIsDj={setIsDj}
         />
       )}
       <Routes>
@@ -44,6 +47,8 @@ function App() {
               fullName={fullName}
               djDetails={djDetails}
               setDjDetails={setDjDetails}
+              isDj={isDj}
+              setIsDj={setIsDj}
             />
           }
         />

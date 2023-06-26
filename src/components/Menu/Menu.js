@@ -6,21 +6,32 @@ import MusicIcon from "../../assets/icons/musicicon.svg";
 import ProfileIcon from "../../assets/icons/profileicon.svg";
 import SignOutIcon from "../../assets/icons/signouticon.svg";
 import HomeIcon from "../../assets/icons/homeicon.svg";
+import PlaceholderProfileIcon from "../../assets/images/placeholder-profile.jpg";
 
-const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
+const Menu = ({ setDjDetails, setIsLoggedIn, setIsDj }) => {
   const sessionDjDetails = JSON.parse(sessionStorage.getItem("djDetails"));
   const sessionFullName = sessionStorage.getItem("fullName");
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
+    setDjDetails(null);
+    setIsDj(0);
     sessionStorage.clear();
   };
   return (
     <nav className="nav2">
-      {sessionDjDetails && (
+      {sessionDjDetails ? (
         <Link to="/profile">
           <img
             src={sessionDjDetails.profile_image}
+            alt="profile icon"
+            className="menu__profile-image"
+          />
+        </Link>
+      ) : (
+        <Link to="/profile">
+          <img
+            src={PlaceholderProfileIcon}
             alt="profile icon"
             className="menu__profile-image"
           />
@@ -42,14 +53,7 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
         <img src={ProfileIcon} alt="" className="menu__icon" />
         My Profile
       </Link>
-      <Link
-        to="/events"
-        className="menu__link"
-        state={{
-          djDetails,
-          fullName,
-        }}
-      >
+      <Link to="/events" className="menu__link">
         <img src={EventIcon} alt="calendar icon" className="menu__icon" />
         Events
       </Link>
@@ -61,7 +65,7 @@ const Menu = ({ djDetails, fullName, setIsLoggedIn }) => {
         <img src={AboutIcon} alt="question mark icon" className="menu__icon" />
         About Us
       </Link>
-      <Link onClick={handleSignOut} className="menu__link">
+      <Link to="/" onClick={handleSignOut} className="menu__link">
         <img src={SignOutIcon} alt="exit icon" className="menu__icon" />
         Sign Out
       </Link>
