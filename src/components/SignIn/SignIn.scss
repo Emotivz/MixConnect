@@ -1,3 +1,5 @@
+@use "../../styles/partials/variables" as *;
+
 .signin {
   display: flex;
   flex-direction: column;
@@ -19,7 +21,7 @@
   }
 
   &__button {
-    background: #5669ff;
+    background: $primary-blue;
     box-shadow: 0px 10px 35px rgba(111, 126, 201, 0.25);
     border-radius: 15px;
     height: 5rem;

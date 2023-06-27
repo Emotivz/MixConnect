@@ -8,7 +8,7 @@ const UpcomingEvent = ({ event }) => {
       <div className="upcoming-event__cover-photo-container">
         <img
           src={event.cover_photo}
-          alt="event cover photo"
+          alt="event cover"
           className="upcoming-event__cover-photo"
         />
         <div className="upcoming-event__date-container">

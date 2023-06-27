@@ -1,15 +1,14 @@
 import "./Event.scss";
 import moment from "moment";
 import DeleteIcon from "../../assets/icons/deleteicon.svg";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Event = ({ event }) => {
   const token = sessionStorage.getItem("token");
-
-  const navigate = useNavigate();
   const sessionUserId = JSON.parse(sessionStorage.getItem("userId"));
-  const handleDelete = async () => {
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
     try {
       await axios.delete(
         `${process.env.REACT_APP_API_URL}/events/${event.id}`,
@@ -22,7 +21,6 @@ const Event = ({ event }) => {
     } catch (error) {
       console.log(error.response);
     }
-    navigate("/events");
   };
   return (
     <article className="event">
