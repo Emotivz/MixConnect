@@ -10,6 +10,7 @@ import Menu from "./components/Menu/Menu";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import MenuIcon from "./assets/icons/menuicon.svg";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
+import EventDetailsPage from "./pages/EventsDetailsPage/EventDetailsPage";
 
 function App() {
   const [user_id, setUser_id] = useState(0);
@@ -62,6 +63,7 @@ function App() {
           element={<DjSignupPage user_id={user_id} />}
         />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/:eventId" element={<EventDetailsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/edit" element={<EditProfilePage />} />
       </Routes>
