@@ -7,6 +7,12 @@
   height: 100vh;
   //   position: absolute;
   //   top: 0;
+
+  &__logo {
+    width: 50%;
+    margin: 2rem;
+    align-self: center;
+  }
 }
 
 .signin-form {

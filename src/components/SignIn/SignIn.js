@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import axios from "axios";
 import { useState } from "react";
+import Logo from "../../assets/logos/mixconnectlogo.png";
 
 const SignIn = ({ setIsLoggedIn }) => {
   const [loginErrors, setLoginErrors] = useState(null);
@@ -41,6 +42,7 @@ const SignIn = ({ setIsLoggedIn }) => {
 
   return (
     <section className="signin">
+      <img src={Logo} alt="Mix Connect Logo" className="signin__logo" />
       <h1>Sign In</h1>
       <Formik
         initialValues={{
