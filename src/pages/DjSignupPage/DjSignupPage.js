@@ -8,11 +8,14 @@ import DjLocation from "../../components/DjLocation/DjLocation";
 import DjPrice from "../../components/DjPrice/DjPrice";
 import DjBio from "../../components/DjBio/DjBio";
 import axios from "axios";
+import Logo from "../../assets/logos/mixconnectlogo.png";
 
 const DjSignupPage = ({ user_id }) => {
   const formData = new FormData();
 
   const navigate = useNavigate();
+
+  const [signupSuccess, setSignupSuccess] = useState("");
 
   // initial DJ values
   const [data, setData] = useState({
@@ -52,7 +55,10 @@ const DjSignupPage = ({ user_id }) => {
         formData
       );
       console.log(response.data.message);
-      navigate("/");
+      setSignupSuccess("Signed Up Successfully. Redirecting to Sign In");
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
       console.log(error.message);
     }
@@ -94,10 +100,12 @@ const DjSignupPage = ({ user_id }) => {
     <>
       {signupValues && (
         <section className="djsignup-page">
+          <img src={Logo} alt="Mix connect logo" className="signup__logo" />
           <div className="djsignup-page__wizard">
             <h1>Welcome {signupValues.fullName} to Mix Connect</h1>
           </div>
           {steps[currentStep]}
+          <p className="signup__success">{signupSuccess}</p>
         </section>
       )}
     </>
