@@ -3,7 +3,6 @@ import SignIn from "../../components/SignIn/SignIn";
 import { useState, useEffect } from "react";
 import Home from "../../components/Home/Home";
 import axios from "axios";
-// import Background from "../components/Background/Background";
 import Loading from "../../components/Loading/Loading";
 
 const Landing = ({

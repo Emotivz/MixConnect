@@ -1,6 +1,5 @@
 import "./DjBio.scss";
 import { Form, Formik } from "formik";
-import NextButton from "../NextButton/NextButton";
 import BackButton from "../BackButton/BackButton";
 import MyTextArea from "../MyTextArea/MyTextArea";
 import * as Yup from "yup";
@@ -27,7 +26,9 @@ const DjBio = ({ data, next, prev }) => {
             <MyTextArea label="Bio" name="bio" type="text" placeholder="Bio" />
             <div className="dj-bio__button-container">
               <BackButton prev={prev} values={values} />
-              <NextButton />
+              <button className="next-button" type="submit">
+                Submit
+              </button>
             </div>
           </Form>
         )}

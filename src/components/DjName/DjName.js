@@ -10,7 +10,7 @@ const DjName = ({ data, next }) => {
   };
   return (
     <>
-      <h1>DJ Name component</h1>
+      <h1>DJ Name</h1>
       <Formik
         encType="multipart/form-data"
         initialValues={data}

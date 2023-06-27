@@ -4,9 +4,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
   //   position: absolute;
   //   top: 0;
+
+  &__logo {
+    width: 50%;
+    margin: 2rem;
+    align-self: center;
+  }
+
+  &__success {
+    font-size: 2rem;
+    align-self: center;
+    font-weight: 500;
+    color: $green;
+  }
 }
 
 .signup-form {
@@ -21,11 +33,14 @@
   }
 
   &__button {
-    background: $secondary-blue;
+    background: $primary-blue;
     box-shadow: 0px 10px 35px rgba(111, 126, 201, 0.25);
     border-radius: 1.5rem;
     height: 5rem;
     margin: 1rem 0;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
   }
 
   &__signin-container {

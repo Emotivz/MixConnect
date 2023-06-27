@@ -6,11 +6,13 @@ import ErrorIcon from "../../assets/icons/error-24px.svg";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import axios from "axios";
 import { useState } from "react";
+import Logo from "../../assets/logos/mixconnectlogo.png";
 
 const SignUp = ({ setUser_id }) => {
   const navigate = useNavigate();
 
   const [signupErrors, setSignupErrors] = useState("");
+  const [signupSuccess, setSignupSuccess] = useState("");
 
   const submitSignUp = async (values) => {
     setSignupErrors("");
@@ -22,9 +24,17 @@ const SignUp = ({ setUser_id }) => {
       setUser_id(response.data.user_id);
       sessionStorage.setItem("user_id", response.data.user_id);
       if (values.is_dj) {
-        return navigate("/signup/dj/", { state: values });
+        setSignupSuccess(
+          "Signed Up Successfully. Redirecting to DJ Profile Setup"
+        );
+        return setTimeout(() => {
+          navigate("/signup/dj/", { state: values });
+        }, 3000);
       }
-      navigate("/");
+      setSignupSuccess("Signed Up Successfully. Redirecting to Sign In");
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
       setSignupErrors(error.response.data.message);
     }
@@ -55,6 +65,7 @@ const SignUp = ({ setUser_id }) => {
 
   return (
     <section className="signup">
+      <img src={Logo} alt="Mix connect logo" className="signup__logo" />
       <h1>Sign Up</h1>
       <Formik
         initialValues={{
@@ -128,6 +139,7 @@ const SignUp = ({ setUser_id }) => {
           Already have an account? <Link to="/">Sign in</Link>
         </p>
       </div>
+      <p className="signup__success">{signupSuccess}</p>
     </section>
   );
 };
