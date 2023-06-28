@@ -24,7 +24,7 @@ const EventDetails = ({ eventData }) => {
             src={BackArrow}
             alt="back"
             className="event-details__back"
-            onClick={() => navigate("/events")}
+            onClick={() => navigate(-1)}
           />
           <h1 className="event-details__header">Event Details</h1>
         </div>

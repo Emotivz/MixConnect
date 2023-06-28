@@ -40,7 +40,11 @@ const Home = () => {
       </div>
       {featuredEvents ? (
         featuredEvents.map((event) => {
-          return <UpcomingEvent key={event.id} event={event} />;
+          return (
+            <Link to={`/events/${event.id}`} key={event.id}>
+              <UpcomingEvent key={event.id} event={event} />
+            </Link>
+          );
         })
       ) : (
         <p>There are no upcoming events</p>

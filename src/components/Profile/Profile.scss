@@ -2,9 +2,20 @@
 
 .profile {
   margin: 4rem 2rem;
+
+  &__header-container {
+    display: flex;
+  }
   &__header {
     font-weight: 500;
     font-size: 4rem;
+  }
+
+  &__back {
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    margin-right: 1rem;
   }
 
   &__details-container {

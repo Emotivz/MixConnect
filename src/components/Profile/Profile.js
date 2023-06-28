@@ -3,6 +3,7 @@ import DjIcon from "../../assets/icons/djicon.svg";
 import EditIcon from "../../assets/icons/edit.svg";
 import PlaceholderImage from "../../assets/images/placeholder-profile.jpg";
 import { useNavigate } from "react-router-dom";
+import ArrowLeft from "../../assets/icons/arrowleft.svg";
 
 const Profile = ({ myProfile }) => {
   const navigate = useNavigate();
@@ -12,7 +13,15 @@ const Profile = ({ myProfile }) => {
   };
   return (
     <section className="profile main">
-      <h1 className="profile__header">My Profile</h1>
+      <div className="profile__header-container">
+        <img
+          src={ArrowLeft}
+          alt="back"
+          className="profile__back"
+          onClick={() => navigate(-1)}
+        />
+        <h1 className="profile__header">My Profile</h1>
+      </div>
       <div className="profile__details-container">
         <img
           className="profile__image"
