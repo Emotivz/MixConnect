@@ -1,0 +1,35 @@
+@use "../../styles/partials/variables" as *;
+
+.dj {
+  margin: 2rem 2rem;
+  height: 12rem;
+  box-shadow: 0 0.8rem 3rem rgba(80, 85, 136, 0.06);
+  border-radius: 1.8rem;
+  background-color: rgba(86, 105, 255, 0.1);
+  display: flex;
+  position: relative;
+
+  &__profile-image {
+    width: 12rem;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1.8rem;
+    object-fit: cover;
+  }
+  &__details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  &__dj-name {
+    color: #120d26;
+    font-size: 2rem;
+  }
+
+  &__dj-location {
+    color: $red;
+    font-size: 1.6rem;
+  }
+}

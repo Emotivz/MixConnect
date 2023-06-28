@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import MenuIcon from "./assets/icons/menuicon.svg";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import EventDetailsPage from "./pages/EventsDetailsPage/EventDetailsPage";
+import DjListPage from "./pages/DjListPage/DjListPage";
 
 function App() {
   const [user_id, setUser_id] = useState(0);
@@ -66,6 +67,7 @@ function App() {
         <Route path="/events/:eventId" element={<EventDetailsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/edit" element={<EditProfilePage />} />
+        <Route path="/djs" element={<DjListPage />} />
       </Routes>
     </BrowserRouter>
   );

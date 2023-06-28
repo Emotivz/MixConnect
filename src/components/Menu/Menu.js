@@ -57,7 +57,7 @@ const Menu = ({ setDjDetails, setIsLoggedIn, setIsDj }) => {
         <img src={EventIcon} alt="calendar icon" className="menu__icon" />
         Events
       </Link>
-      <Link className="menu__link">
+      <Link to="/djs" className="menu__link">
         <img src={MusicIcon} alt="music icon" className="menu__icon" />
         DJs
       </Link>

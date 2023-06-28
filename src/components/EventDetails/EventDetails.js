@@ -10,7 +10,6 @@ import ApplyIcon from "../../assets/icons/saveicon.svg";
 import moment from "moment";
 
 const EventDetails = ({ eventData }) => {
-  console.log(eventData);
   const navigate = useNavigate();
   return (
     <>
