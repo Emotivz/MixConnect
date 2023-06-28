@@ -37,7 +37,7 @@ const DjListPage = () => {
         {djList ? (
           djList.map((dj) => {
             return (
-              <Link className="dj-list__link" key={dj.id}>
+              <Link to={`/djs/${dj.id}`} className="dj-list__link" key={dj.id}>
                 <Dj dj={dj} key={dj.id} />
               </Link>
             );
