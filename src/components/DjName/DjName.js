@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import * as Yup from "yup";
 import NextButton from "../NextButton/NextButton";
+import GenerateData from "../GenerateData/GenerateData";
 
 const DjName = ({ data, next }) => {
   const handleSubmit = (values) => {
@@ -29,6 +30,7 @@ const DjName = ({ data, next }) => {
           <div className="dj-name__button-container">
             <NextButton />
           </div>
+          <GenerateData />
         </Form>
       </Formik>
     </>

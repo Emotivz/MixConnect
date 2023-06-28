@@ -1,12 +1,13 @@
 import "./SignUp.scss";
-import { Formik, Form, useField } from "formik";
+import { Formik, Form, useField, useFormikContext } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import ErrorIcon from "../../assets/icons/error-24px.svg";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../assets/logos/mixconnectlogo.png";
+import GenerateData from "../GenerateData/GenerateData";
 
 const SignUp = ({ setUser_id }) => {
   const navigate = useNavigate();
@@ -62,6 +63,9 @@ const SignUp = ({ setUser_id }) => {
       </div>
     );
   };
+
+  // eslint-disable-next-line
+  const generateRandom = ({ vales }) => {};
 
   return (
     <section className="signup">
@@ -132,6 +136,7 @@ const SignUp = ({ setUser_id }) => {
           <button className="signup-form__button" type="submit">
             Sign Up
           </button>
+          <GenerateData />
         </Form>
       </Formik>
       <div className="signup-form__signin-container">

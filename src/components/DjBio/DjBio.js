@@ -3,6 +3,7 @@ import { Form, Formik } from "formik";
 import BackButton from "../BackButton/BackButton";
 import MyTextArea from "../MyTextArea/MyTextArea";
 import * as Yup from "yup";
+import GenerateData from "../GenerateData/GenerateData";
 
 const DjBio = ({ data, next, prev }) => {
   const handleSubmit = (values) => {
@@ -18,7 +19,7 @@ const DjBio = ({ data, next, prev }) => {
         validationSchema={Yup.object({
           bio: Yup.string()
             .notRequired()
-            .max(250, "Bio cannot be longer than 250 characters"),
+            .max(5000, "Bio cannot be longer than 5000 characters"),
         })}
       >
         {(values) => (
@@ -30,6 +31,7 @@ const DjBio = ({ data, next, prev }) => {
                 Submit
               </button>
             </div>
+            <GenerateData />
           </Form>
         )}
       </Formik>
