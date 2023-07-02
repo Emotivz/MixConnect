@@ -64,9 +64,6 @@ const SignUp = ({ setUser_id }) => {
     );
   };
 
-  // eslint-disable-next-line
-  const generateRandom = ({ vales }) => {};
-
   return (
     <section className="signup">
       <img src={Logo} alt="Mix connect logo" className="signup__logo" />
