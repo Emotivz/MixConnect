@@ -1,11 +1,11 @@
 import "./SignUp.scss";
-import { Formik, Form, useField, useFormikContext } from "formik";
+import { Formik, Form, useField } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import ErrorIcon from "../../assets/icons/error-24px.svg";
 import MyTextInput from "../MyTextInput/MyTextInput";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "../../assets/logos/mixconnectlogo.png";
 import GenerateData from "../GenerateData/GenerateData";
 
